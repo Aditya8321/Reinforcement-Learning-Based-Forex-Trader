@@ -1,61 +1,64 @@
 # Project Title
-**Detection and Analysis of Forex Arbitrage Opportunities (2019–2024)**  
+**Reinforcement Learning Agent for Triangular Forex Arbitrage (USD–EUR–ZAR)**  
 **Stage:** Problem Framing & Scoping (Stage 01)  
 
 ---
 
 ## Problem Statement
-The foreign exchange (forex) market is the largest and most liquid financial market in the world, with trillions of dollars traded daily.  
-Even though prices adjust quickly, short-lived mispricings can occur due to market inefficiencies, leading to arbitrage opportunities.  
-This project will analyze historical forex data from 2019 to 2024 for major currency pairs involving the Indian Rupee (INR), US Dollar (USD), and Euro (EUR), with a focus on identifying and evaluating potential arbitrage situations.  
-We will examine two primary strategies: **triangular arbitrage** and **covered interest arbitrage**.  
+Triangular arbitrage in the forex market exploits price discrepancies between three currency pairs to generate a profit.  
+For example, trading USD → EUR → ZAR → USD can yield a gain if the cross-rate pricing is inconsistent.  
+While theoretically risk-free, in real markets the opportunity often disappears after accounting for **transaction costs** such as bid–ask spreads, commissions, and slippage.  
+This project will develop a **Reinforcement Learning (RL) agent** trained on **tick-level bid/ask data** from TrueFX for **July 2025** to learn an optimal trading policy that maximizes **net profit after costs**.
 
 ---
 
 ## Stakeholder & User
-**Primary Stakeholder:** Institutional traders, currency desks at investment banks, quantitative hedge funds.  
-**End Users:** Algorithmic trading developers, retail traders learning arbitrage mechanics, academic researchers in finance.  
-**Timing & Workflow Context:** Results are most useful for backtesting automated strategies and for educational purposes in understanding market efficiency.  
+**Primary Stakeholder:** Quantitative trading teams, hedge funds, and algorithmic trading researchers.  
+**End Users:**  
+- Algorithmic traders developing execution models.  
+- Finance students studying arbitrage strategies.  
+- Researchers analyzing market efficiency and AI decision-making.  
+**Timing & Workflow Context:**  
+The model is for **backtesting and educational simulation**, not live market execution.
 
 ---
 
 ## Useful Answer & Decision
-This project will deliver:
-- **Descriptive insights** — historical frequency and size of arbitrage opportunities.
-- **Predictive elements** — statistical probability of arbitrage in given volatility conditions.
-- **Artifacts** — scripts to detect arbitrage and visualizations of arbitrage frequency over time.
+The RL agent will provide:
+- A **policy** indicating when to execute the USD–EUR–ZAR arbitrage loop.
+- Profitability estimates **after transaction costs**.
+- Insights on conditions (spread size, volatility) that make arbitrage viable.
 
 ---
 
 ## Assumptions & Constraints
-- **Data Availability:** Historical spot and forward FX rates are available for USD/INR, EUR/USD, and EUR/INR.
-- **Transaction Costs:** Analysis will be conducted both before and after accounting for bid–ask spreads and fees.
-- **Constraints:** Real-world execution requires ultra-low latency; this study is a historical simulation.
-- **Compliance:** Only public and licensed datasets will be used.
+- **Data:** Tick-level bid/ask prices from TrueFX for USD/ZAR, EUR/USD, EUR/ZAR (July 2025).
+- **Costs:** Bid–ask spread, commission per trade, and slippage will be modeled.
+- **Execution:** All three trades in the arbitrage loop are assumed to occur within the same tick for proof-of-concept.
+- **Limitation:** Opportunities in real-time markets are extremely short-lived and require HFT infrastructure.
 
 ---
 
 ## Known Unknowns / Risks
-- True arbitrage profits may disappear when realistic transaction costs are included.
-- Time-stamped precision is crucial; low-frequency data may miss opportunities.
-- Market microstructure noise may create false signals.
+- Accurate cost modeling — spreads in emerging market FX (like ZAR) can be wide and volatile.
+- Risk of overfitting the RL agent to one month's market conditions.
+- Dataset alignment issues if ticks between currency pairs are not perfectly synchronized.
 
 ---
 
 ## Lifecycle Mapping
 Goal → Stage → Deliverable
-- Identify historical arbitrage windows → Stage 02: Data Collection → Dataset with price series.
-- Measure profitability → Stage 03: Data Analysis → Arbitrage profitability tables & charts.
-- Evaluate real-world feasibility → Stage 04: Reporting → Final Report & Visual Dashboard.
+- Identify arbitrage opportunities in USD–EUR–ZAR → Stage 02: Data Collection → Tick-level merged dataset.
+- Model and apply realistic transaction costs → Stage 03: Data Preparation → Cost-adjusted dataset.
+- Train RL agent on simulated environment → Stage 04: Modeling → Trained policy & performance metrics.
+- Evaluate against baseline strategies → Stage 05: Reporting → Research report with charts & conclusions.
 
 ---
 
 ## Repo Plan
-- `/data/` → Raw and processed FX rate data.
-- `/src/` → Scripts for arbitrage detection, calculation, and visualization.
-- `/notebooks/` → Exploratory analysis and strategy simulation.
-- `/docs/` → Stakeholder memo, methodology, and final report.
+- `/data/` → Tick-level bid/ask data from TrueFX for USD/ZAR, EUR/USD, EUR/ZAR.
+- `/src/` → Data processing scripts, RL environment code, training scripts.
+- `/notebooks/` → Exploratory analysis, baseline detection algorithms.
+- `/docs/` → Stakeholder memo, methodology document, final report.
 
-**Update Cadence:** Weekly commits with incremental data and code updates.
-
----
+**Update Cadence:** Weekly commits showing progress from raw data → processed → model training → results.
