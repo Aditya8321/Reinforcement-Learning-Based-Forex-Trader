@@ -1,67 +1,61 @@
-# Project Title 
+# Project Title
+**Detection and Analysis of Forex Arbitrage Opportunities (2019–2024)**  
+**Stage:** Problem Framing & Scoping (Stage 01)  
 
-Comparative Analysis of Global Bond Markets: India and US (2019–2024)
-
-**Stage:** Problem Framing & Scoping (Stage 01)
+---
 
 ## Problem Statement
+The foreign exchange (forex) market is the largest and most liquid financial market in the world, with trillions of dollars traded daily.  
+Even though prices adjust quickly, short-lived mispricings can occur due to market inefficiencies, leading to arbitrage opportunities.  
+This project will analyze historical forex data from 2019 to 2024 for major currency pairs involving the Indian Rupee (INR), US Dollar (USD), and Euro (EUR), with a focus on identifying and evaluating potential arbitrage situations.  
+We will examine two primary strategies: **triangular arbitrage** and **covered interest arbitrage**.  
 
-The bond markets prove to be quite an efficient investment tools for financial institutions and helps in providing economic stability and investment stratergy. At a global scale, different markets exhibit varying risks, yields and correlations over time. This project will comprise of a comprehensive study of past 5 year data (2019-2024) of the bond markets in India and the United States, focusing primarily on the short term (3 months) and long term (5 years) bonds. By comparing these bonds through market volatility, yield trends and cross market correlations, we aim to conclude which market proved to be a better investment relative to the risk demanded, any possibilites for currency arbitrage, and correlation between these markets. 
+---
 
 ## Stakeholder & User
+**Primary Stakeholder:** Institutional traders, currency desks at investment banks, quantitative hedge funds.  
+**End Users:** Algorithmic trading developers, retail traders learning arbitrage mechanics, academic researchers in finance.  
+**Timing & Workflow Context:** Results are most useful for backtesting automated strategies and for educational purposes in understanding market efficiency.  
 
-Primary Stakeholder: Institutional investors, sovereign wealth funds, and global macro hedge funds seeking yield optimization and risk-adjusted returns.
-End Users: Financial analysts, economists, and policy advisors interested in yield curve analysis and cross-market capital flow dynamics.
-Timing & Workflow Context: Insights will be most valuable during portfolio rebalancing cycles, monetary policy shifts, and in response to macroeconomic shocks.
+---
 
 ## Useful Answer & Decision
+This project will deliver:
+- **Descriptive insights** — historical frequency and size of arbitrage opportunities.
+- **Predictive elements** — statistical probability of arbitrage in given volatility conditions.
+- **Artifacts** — scripts to detect arbitrage and visualizations of arbitrage frequency over time.
 
-The project will produce descriptive yield comparisons, correlation analysis, and theoretical arbitrage evaluations based on interest rate parity. Outputs will include:
-
-Yield performance metrics for short- and long-term bonds in each market.
-
-Correlation coefficients between India and US bonds.
-
-Identification of periods where covered interest arbitrage may have been feasible.
-
-Visualizations of yield curves, spreads, and deviations from parity conditions.
+---
 
 ## Assumptions & Constraints
+- **Data Availability:** Historical spot and forward FX rates are available for USD/INR, EUR/USD, and EUR/INR.
+- **Transaction Costs:** Analysis will be conducted both before and after accounting for bid–ask spreads and fees.
+- **Constraints:** Real-world execution requires ultra-low latency; this study is a historical simulation.
+- **Compliance:** Only public and licensed datasets will be used.
 
-Data Availability: Daily or monthly historical yields for 3M and 5Y bonds from RBI and FRED; spot and forward FX rates for USD/INR.
-
-Time Horizon: Jan 2019 – Aug 2024.
-
-Constraints: Possible short-term missing data; differences in bond market liquidity; FX forward rate accessibility.
-
-Compliance: Data sources must be publicly licensed or accessible through institutional data subscriptions.
+---
 
 ## Known Unknowns / Risks
+- True arbitrage profits may disappear when realistic transaction costs are included.
+- Time-stamped precision is crucial; low-frequency data may miss opportunities.
+- Market microstructure noise may create false signals.
 
-FX forward market data availability for historical periods.
-
-India’s partial capital controls limiting arbitrage execution in practice.
-
-Yield distortions due to COVID-19 and policy interventions (e.g., US QE, India rate cuts).
+---
 
 ## Lifecycle Mapping
 Goal → Stage → Deliverable
+- Identify historical arbitrage windows → Stage 02: Data Collection → Dataset with price series.
+- Measure profitability → Stage 03: Data Analysis → Arbitrage profitability tables & charts.
+- Evaluate real-world feasibility → Stage 04: Reporting → Final Report & Visual Dashboard.
 
-Compare short- and long-term yields → Stage 02: Data Collection → Dataset & Data Dictionary.
-
-Assess market correlation → Stage 03: Data Analysis → Correlation tables & charts.
-
-Evaluate parity-based arbitrage → Stage 03: Data Analysis → Arbitrage feasibility report.
-
-Present findings → Stage 04: Reporting → Final report & visual dashboards.
+---
 
 ## Repo Plan
+- `/data/` → Raw and processed FX rate data.
+- `/src/` → Scripts for arbitrage detection, calculation, and visualization.
+- `/notebooks/` → Exploratory analysis and strategy simulation.
+- `/docs/` → Stakeholder memo, methodology, and final report.
 
-/data/ → Raw and processed yield and FX data.
+**Update Cadence:** Weekly commits with incremental data and code updates.
 
-/src/ → Scripts for data cleaning, correlation, and arbitrage calculations.
-
-/notebooks/ → Exploratory Data Analysis (EDA), yield curve analysis, and arbitrage testing.
-
-/docs/ → Stakeholder memo, final report, and visualizations.
-Update Cadence: Weekly commits with incremental analysis and visual outputs.
+---
