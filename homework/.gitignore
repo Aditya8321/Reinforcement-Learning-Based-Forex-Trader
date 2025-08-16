@@ -1,4 +1,0 @@
-**/.env
-*.csv
-*.parquet
-!homework3/data/starter_data.csv
