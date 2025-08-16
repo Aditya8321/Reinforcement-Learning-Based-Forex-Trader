@@ -1,0 +1,4 @@
+**/.env
+*.csv
+*.parquet
+!/Users/aditya/Documents/bootcamp_aditya_shah/homework/homework3/data/starter_data.csv
