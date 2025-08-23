@@ -3,4 +3,3 @@
 *.parquet
 !homework/homework3/data/starter_data.csv
 class_materials/
-project/
