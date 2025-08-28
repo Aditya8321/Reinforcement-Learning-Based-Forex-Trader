@@ -5,53 +5,71 @@
 ---
 
 ## Problem Statement
-Triangular arbitrage in the forex market exploits price discrepancies between three currency pairs to generate a profit.  
-For example, trading USD → EUR → ZAR → USD can yield a gain if the cross-rate pricing is inconsistent.  
-While theoretically risk-free, in real markets the opportunity often disappears after accounting for **transaction costs** such as bid–ask spreads, commissions, and slippage.  
-This project will develop a **Reinforcement Learning (RL) agent** trained on **tick-level bid/ask data** from TrueFX for **July 2025** to learn an optimal trading policy that maximizes **net profit after costs**.
+In the on-going world, agentic trading has become quite popular. This project is going to simulate a reinforcement learning agent that will be trading on a forex currency exchange using a Deep Q Learning Network. 
+The goal is to train a Reinforcement Learning (RL) agent to decide when to buy or sell USD/ZAR to maximize profit with a limited starting capital (e.g., $10,000).
+The agent will learn from tick-level bid/ask price data and account for transaction costs such as spreads, commissions, and slippage.
+Unlike triangular arbitrage, this focuses on single-pair trading, making it more realistic for individuals or small-scale automated strategies.
 
 ---
 
 ## Stakeholder & User
-**Primary Stakeholder:** Quantitative trading teams, hedge funds, and algorithmic trading researchers.  
+**Primary Stakeholder:** Individual traders, trading algorithm developers, and financial AI researchers. 
 **End Users:**  
-- Algorithmic traders developing execution models.  
-- Finance students studying arbitrage strategies.  
-- Researchers analyzing market efficiency and AI decision-making.  
+Algorithmic traders looking to simulate small-scale FX trading.
+
+Students studying reinforcement learning in finance.
+
+Researchers analyzing single-currency decision-making.
+Timing & Workflow Context:
+
+For simulation and backtesting only, not real-time trading.  
 **Timing & Workflow Context:**  
 The model is for **backtesting and educational simulation**, not live market execution.
 
 ---
 
 ## Useful Answer & Decision
+
 The RL agent will provide:
-- A **policy** indicating when to execute the USD–EUR–ZAR arbitrage loop.
-- Profitability estimates **after transaction costs**.
-- Insights on conditions (spread size, volatility) that make arbitrage viable.
+
+Buy/sell/hold actions at optimal times.
+
+Profit and loss simulations over historical data.
+
+Insights into market conditions (volatility, trend) that impact profitability.
 
 ---
 
 ## Assumptions & Constraints
-- **Data:** Tick-level bid/ask prices from TrueFX for USD/ZAR, EUR/USD, EUR/ZAR (July 2025).
-- **Costs:** Bid–ask spread, commission per trade, and slippage will be modeled.
-- **Execution:** All three trades in the arbitrage loop are assumed to occur within the same tick for proof-of-concept.
-- **Limitation:** Opportunities in real-time markets are extremely short-lived and require HFT infrastructure.
+Data: Tick-level bid/ask prices for USD/ZAR.
 
+Budget: $10,000 starting capital.
+
+Costs: Spread, per-trade commission, and slippage will be included in simulations.
+
+Execution: Each trade occurs at a single tick; fractional execution or partial fills are ignored.
+
+Limitation: Real-time market dynamics (latency, HFT competition) are not modeled.
 ---
 
 ## Known Unknowns / Risks
-- Accurate cost modeling — spreads in emerging market FX (like ZAR) can be wide and volatile.
-- Risk of overfitting the RL agent to one month's market conditions.
-- Dataset alignment issues if ticks between currency pairs are not perfectly synchronized.
+
+Risk of overfitting to historical price patterns.
+
+Unrealistic assumptions about execution speed.
+
+Market shocks or illiquidity may reduce strategy profitability.
 
 ---
 
 ## Lifecycle Mapping
-Goal → Stage → Deliverable
-- Identify arbitrage opportunities in USD–EUR–ZAR → Stage 02: Data Collection → Tick-level merged dataset.
-- Model and apply realistic transaction costs → Stage 03: Data Preparation → Cost-adjusted dataset.
-- Train RL agent on simulated environment → Stage 04: Modeling → Trained policy & performance metrics.
-- Evaluate against baseline strategies → Stage 05: Reporting → Research report with charts & conclusions.
+| Goal                                                       | Stage                      | Deliverable                                                |
+| ---------------------------------------------------------- | -------------------------- | ---------------------------------------------------------- |
+| Prepare tick-level USD/ZAR dataset                         | Stage 02: Data Collection  | Cleaned and aligned price data                             |
+| Apply transaction cost modeling                            | Stage 03: Data Preparation | Cost-adjusted dataset                                      |
+| Train RL agent on historical simulation                    | Stage 04: Modeling         | Trained agent with performance metrics                     |
+| Evaluate vs baseline (e.g., buy-and-hold, random strategy) | Stage 05: Reporting        | Research report with charts, insights, and recommendations |
+
 
 ---
 

@@ -1,5 +1,7 @@
 **/.env
 *.csv
+*.npy
+*.pth
 *.parquet
 !homework/homework3/data/starter_data.csv
 !/Users/aditya/Documents/bootcamp_aditya_shah/homework/stage02_tooling-setup_slides-outline/.env.example
