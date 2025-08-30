@@ -4,9 +4,6 @@ This repository contains an end-to-end workflow for building a Reinforcement Lea
 It includes data collection, preprocessing, exploratory analysis, feature engineering, model training, and a Streamlit app for visualization.
 
 ---
-
-## 📂 Directory Structure
-
 ## 📂 Directory Structure
 
 ```bash
@@ -26,7 +23,7 @@ project/
 └── .gitignore                # Ignore unnecessary files (.csv, checkpoints, etc.)
 
 ---
-
+```
 ## 🔄 Workflow Stages
 
 1. **Data Acquisition (`data_acquisition.ipynb`)**  
@@ -67,18 +64,18 @@ Clone the repository and install dependencies:
 git clone https://github.com/USERNAME/REPO_NAME.git
 cd REPO_NAME
 pip install -r requirements.txt
-
+```
 🚀 Usage
 
 Run notebooks step by step:
-
+```
 jupyter notebook
-
+```
 
 Or launch the Streamlit app:
-
+```
 streamlit run streamlit_rep.py
-
+```
 📝 Notes
 
 Large datasets (.csv, .zip) are excluded via .gitignore.
