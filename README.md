@@ -7,21 +7,23 @@ It includes data collection, preprocessing, exploratory analysis, feature engine
 
 ## 📂 Directory Structure
 
-project/
-│── data/ # Raw and processed datasets (ignored in git if large)
-│── notebooks/ # Jupyter notebooks for each stage of the workflow
-│ ├── data_acquisition.ipynb
-│ ├── data_preprocessing.ipynb
-│ ├── data_storage.ipynb
-│ ├── exploratory_data_analysis.ipynb
-│ ├── feature_engineering.ipynb
-│ └── model_training.ipynb
-│── reports/ # Generated reports, figures, and analysis outputs
-│── streamlit_rep.py # Streamlit app for visualization / reporting
-│── requirements.txt # Python dependencies
-│── README.md # Project documentation
-└── .gitignore # Ignore unnecessary files (.csv, checkpoints, etc.)
+## 📂 Directory Structure
 
+```bash
+project/
+├── data/                     # Raw and processed datasets (ignored in git if large)
+├── notebooks/                # Jupyter notebooks for each stage of the workflow
+│   ├── data_acquisition.ipynb
+│   ├── data_preprocessing.ipynb
+│   ├── data_storage.ipynb
+│   ├── exploratory_data_analysis.ipynb
+│   ├── feature_engineering.ipynb
+│   └── model_training.ipynb
+├── reports/                  # Generated reports, figures, and analysis outputs
+├── streamlit_rep.py          # Streamlit app for visualization / reporting
+├── requirements.txt          # Python dependencies
+├── README.md                 # Project documentation
+└── .gitignore                # Ignore unnecessary files (.csv, checkpoints, etc.)
 
 ---
 
